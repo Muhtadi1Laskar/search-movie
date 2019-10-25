@@ -14,12 +14,12 @@ const Movies = () => {
         setSpinner(true);
         const movie_name = document.getElementById("movie_name").value;
         if(movie_name) {
-            const res = await fetch(`http://www.omdbapi.com/?t=${movie_name}&apikey=fc2ffe8a`)
+            const res = await fetch(`http://www.omdbapi.com/?t=${movie_name}&apikey=fc2ffe8a`);
+            setSpinner(false);
             res  
                 .json()  
                 .then(res => setMovie(res))
                 .catch(err => setErros(err));
-            setSpinner(false);
         }
         else {
             setSpinner(false);
